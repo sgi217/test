@@ -91,3 +91,19 @@ transition:0.3s;
 input:checked + .slider:before{
 transform:translateX(26px);
 }
+header{
+display:flex;
+justify-content:space-between;
+padding:0 30px;
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+button{
+padding:12px;
+margin:8px 0;
+}
