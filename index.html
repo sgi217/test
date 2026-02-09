@@ -2,71 +2,80 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title data-lang="pageTitle">각종 테스트</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-lang="siteTitle">각종 테스트</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-<div class="logo">각종 테스트</div>
+<div class="logo" data-lang="siteTitle">각종 테스트</div>
 
 <nav>
-<a class="nav-link" data-page="home-page">홈</a>
-<a class="nav-link" data-page="mbti-page">MBTI</a>
-<a class="nav-link" data-page="love-page">연애스킬</a>
-<a class="nav-link" data-page="loner-page">찐따력</a>
-<a class="nav-link" data-page="fortune-page">운세</a>
+<ul>
+<li><a href="#home" class="nav-link" data-page="home-page" data-lang="navHome">홈</a></li>
+<li><a href="#love" class="nav-link" data-page="love-page" data-lang="navLove">연애스킬</a></li>
+</ul>
 </nav>
 
-<div class="controls">
+<div class="top-controls">
 <select id="language-select">
 <option value="ko">한국어</option>
 <option value="en">English</option>
 </select>
 
+<label class="theme-switch">
 <input type="checkbox" id="checkbox">
+<span class="slider"></span>
+</label>
 </div>
 
 </header>
 
 <main>
 
-<section id="home-page" class="page-content">
-<h1>테스트 홈</h1>
-</section>
+<div id="home-page" class="page-content">
+<h1 data-lang="mainTitle">테스트 선택</h1>
+</div>
 
-<section id="mbti-page" class="page-content hidden">
-<h1>MBTI 테스트 준비중</h1>
-<div id="disqus_mbti"></div>
-</section>
+<div id="love-page" class="page-content" hidden>
 
-<section id="love-page" class="page-content hidden">
-<h1>연애스킬 테스트 준비중</h1>
-<div id="disqus_love"></div>
-</section>
+<div class="container">
+<h1 data-lang="navLove">연애스킬 테스트</h1>
 
-<section id="loner-page" class="page-content hidden">
-<h1>찐따력 테스트 준비중</h1>
-<div id="disqus_loner"></div>
-</section>
+<div id="question-area">
+<h2 id="question-text"></h2>
+<button id="yes-btn">YES</button>
+<button id="no-btn">NO</button>
+</div>
 
-<section id="fortune-page" class="page-content hidden">
-<h1>오늘의 운세</h1>
-<button id="fortuneBtn">운세보기</button>
-<p id="fortuneText"></p>
-<div id="disqus_fortune"></div>
-</section>
+<div id="result-area" hidden>
+<h2 id="result-title"></h2>
+<div class="gauge">
+<div id="gauge-bar"></div>
+</div>
+<p id="result-desc"></p>
+</div>
+
+</div>
+
+<div id="disqus_thread"></div>
+
+</div>
 
 </main>
 
 <footer>
-<h3>제휴 문의</h3>
+
+<div class="footer-contact">
+<h4>제휴 문의</h4>
 <form action="https://formspree.io/f/xaqdnqko" method="POST">
-<input name="email" required placeholder="이메일">
-<textarea name="message" required></textarea>
-<button>보내기</button>
+<input type="email" name="email" required>
+<textarea name="message"></textarea>
+<button type="submit">문의</button>
 </form>
+</div>
+
 </footer>
 
 <script src="main.js"></script>

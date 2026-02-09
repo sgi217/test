@@ -1,54 +1,69 @@
-const pages=document.querySelectorAll(".page-content");
-const navLinks=document.querySelectorAll(".nav-link");
-
-function showPage(id){
-pages.forEach(p=>p.classList.add("hidden"));
-document.getElementById(id).classList.remove("hidden");
-loadDisqus(id);
+body{
+font-family:sans-serif;
+margin:0;
+padding-top:80px;
 }
 
-navLinks.forEach(link=>{
-link.onclick=()=>{
-showPage(link.dataset.page);
-};
-});
-
-function loadDisqus(page){
-const id="disqus_"+page.replace("-page","");
-const target=document.getElementById(id);
-if(!target)return;
-
-target.innerHTML="";
-
-var d=document,s=d.createElement('script');
-s.src='https://sgi217-2.disqus.com/embed.js';
-s.setAttribute('data-timestamp',+new Date());
-(d.head||d.body).appendChild(s);
+header{
+display:flex;
+justify-content:space-between;
+padding:10px 30px;
+background:#fff;
+position:fixed;
+width:100%;
+top:0;
 }
 
-document.getElementById("checkbox").onchange=(e)=>{
-if(e.target.checked){
-document.body.classList.add("dark-mode");
-}else{
-document.body.classList.remove("dark-mode");
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
 }
-};
 
-document.getElementById("language-select").onchange=(e)=>{
-if(e.target.value==="en"){
-alert("영어 번역 데이터 추가하면 활성화됨");
+.page-content{
+padding:30px;
 }
-};
 
-document.getElementById("fortuneBtn").onclick=()=>{
-const list=[
-"행운의 날",
-"조심해야 하는 날",
-"돈 들어오는 날",
-"휴식이 필요한 날"
-];
-document.getElementById("fortuneText").textContent=
-list[Math.floor(Math.random()*list.length)];
-};
+.container{
+max-width:700px;
+margin:auto;
+text-align:center;
+}
 
-showPage("home-page");
+button{
+padding:15px;
+margin:10px;
+font-size:18px;
+}
+
+.gauge{
+width:100%;
+height:20px;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;
+}
+
+#gauge-bar{
+height:100%;
+width:0%;
+background:#4caf50;
+}
+
+.dark-mode{
+background:#111;
+color:#fff;
+}
+
+.theme-switch{
+position:relative;
+width:50px;
+height:25px;
+}
+
+.slider{
+position:absolute;
+background:#ccc;
+width:100%;
+height:100%;
+}
