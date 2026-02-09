@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>유빈 플랫폼</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+<div class="logo">유빈</div>
+
+<div class="menu">
+<button onclick="showHome()">홈</button>
+<button onclick="startTest()">연애테스트</button>
+</div>
+
+<div id="auth">
+<input id="id" placeholder="아이디">
+<input id="pw" type="password" placeholder="비번">
+<button onclick="register()">가입</button>
+<button onclick="login()">로그인</button>
+<button id="logoutBtn" onclick="logout()" hidden>로그아웃</button>
+</div>
+
+</header>
+
+<div id="app"></div>
+
+<script src="main.js"></script>
+</body>
+</html>
