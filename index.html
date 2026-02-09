@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-lang="pageTitle">각종 테스트</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="logo">각종 테스트</div>
+
+<nav>
+<ul>
+<li><a class="nav-link active" data-page="home-page">홈</a></li>
+<li><a class="nav-link" data-page="mbti-page">MBTI</a></li>
+<li><a class="nav-link" data-page="love-skill-page">연애스킬</a></li>
+<li><a class="nav-link" data-page="loner-power-page">찐따력</a></li>
+<li><a class="nav-link" data-page="fortune-page">운세</a></li>
+</ul>
+</nav>
+
+<div class="top-controls">
+<select id="language-select">
+<option value="ko">한국어</option>
+<option value="en">English</option>
+</select>
+
+<label class="theme-switch">
+<input type="checkbox" id="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+</header>
+
+<main>
+
+<div id="home-page" class="page-content active">
+<h1>홈</h1>
+</div>
+
+<div id="mbti-page" class="page-content" hidden>
+<h1>MBTI</h1>
+</div>
+
+<div id="love-skill-page" class="page-content" hidden>
+<h1>연애스킬</h1>
+<button id="start-love-skill-test">테스트 시작</button>
+<div id="test-question-area-loveSkill"></div>
+<div id="test-result-area-loveSkill" hidden></div>
+</div>
+
+<div id="loner-power-page" class="page-content" hidden>
+<h1>찐따력</h1>
+<button id="start-loner-power-test">테스트 시작</button>
+<div id="test-question-area-lonerPower"></div>
+<div id="test-result-area-lonerPower" hidden></div>
+</div>
+
+<div id="fortune-page" class="page-content" hidden>
+<h1>운세</h1>
+<p id="fortune-result">운세 확인</p>
+<button id="get-fortune-btn">운세 보기</button>
+</div>
+
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
