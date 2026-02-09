@@ -1,47 +1,28 @@
-body{font-family:sans-serif;margin:0;text-align:center}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>심리테스트 플랫폼</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-header{
-display:flex;
-justify-content:space-between;
-padding:15px;
-background:#eee;
-}
+<body>
 
-.top-controls{display:flex;gap:10px;margin-right:40px}
+<div class="top-right">
+<button onclick="setLang('ko')">KO</button>
+<button onclick="setLang('en')">EN</button>
+<button onclick="toggleTheme()">🌙</button>
+</div>
 
-.page-content{padding:40px}
+<header>
+<nav>
+<button onclick="goHome()">홈</button>
+<button onclick="openLove()">연애스킬</button>
+</nav>
+</header>
 
-.center-box{max-width:600px;margin:auto}
+<main id="app"></main>
 
-.big-test-btn{
-display:block;
-padding:30px;
-background:#007bff;
-color:white;
-margin-top:20px;
-font-size:22px;
-border-radius:12px;
-}
-
-.test-container{
-max-width:600px;
-margin:auto;
-}
-
-#question{
-font-size:28px;
-margin-bottom:30px;
-}
-
-#yesBtn,#noBtn{
-width:100%;
-padding:20px;
-font-size:20px;
-margin:10px 0;
-border-radius:12px;
-}
-
-.dark-mode{
-background:#121212;
-color:white;
-}
+<script src="main.js"></script>
+</body>
+</html>
