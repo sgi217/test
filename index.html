@@ -2,19 +2,20 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-lang="siteTitle">각종 테스트</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title data-lang="title">각종 테스트</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-<div class="logo" data-lang="siteTitle">각종 테스트</div>
+<div class="logo" data-lang="title">각종 테스트</div>
 
 <nav>
 <ul>
-<li><a href="#home" class="nav-link" data-page="home-page" data-lang="navHome">홈</a></li>
-<li><a href="#love" class="nav-link" data-page="love-page" data-lang="navLove">연애스킬</a></li>
+<li><a href="#home" class="nav-link" data-page="home">홈</a></li>
+<li><a href="#love" class="nav-link" data-page="love">연애스킬</a></li>
 </ul>
 </nav>
 
@@ -29,55 +30,62 @@
 <span class="slider"></span>
 </label>
 </div>
-
 </header>
 
 <main>
 
-<div id="home-page" class="page-content">
-<h1 data-lang="mainTitle">테스트 선택</h1>
+<section id="home" class="page active">
+<h1 class="center-title">테스트 선택</h1>
+
+<div class="grid-container center">
+<div class="test-card nav-link" data-page="love">
+<h3>연애스킬 테스트</h3>
 </div>
-
-<div id="love-page" class="page-content" hidden>
-
-<div class="container">
-<h1 data-lang="navLove">연애스킬 테스트</h1>
-
-<div id="question-area">
-<h2 id="question-text"></h2>
-<button id="yes-btn">YES</button>
-<button id="no-btn">NO</button>
 </div>
+</section>
 
-<div id="result-area" hidden>
-<h2 id="result-title"></h2>
+<section id="love" class="page">
+<div class="container center">
+
+<h2>연애스킬 테스트</h2>
+
+<div id="question-box"></div>
+<div id="answers"></div>
+
+<div id="result" hidden>
+<h3 id="result-title"></h3>
 <div class="gauge">
 <div id="gauge-bar"></div>
 </div>
-<p id="result-desc"></p>
 </div>
 
-</div>
+<button id="start-test">테스트 시작</button>
 
 <div id="disqus_thread"></div>
 
 </div>
+</section>
 
 </main>
 
-<footer>
-
-<div class="footer-contact">
-<h4>제휴 문의</h4>
+<footer class="center">
+<h3>제휴 문의</h3>
 <form action="https://formspree.io/f/xaqdnqko" method="POST">
-<input type="email" name="email" required>
-<textarea name="message"></textarea>
-<button type="submit">문의</button>
+<input type="email" name="email" placeholder="이메일" required>
+<textarea name="message" placeholder="내용"></textarea>
+<button type="submit">보내기</button>
 </form>
-</div>
-
 </footer>
 
 <script src="main.js"></script>
+
+<script>
+(function(){
+var d=document,s=d.createElement('script');
+s.src='https://sgi217-2.disqus.com/embed.js';
+(d.head||d.body).appendChild(s);
+})();
+</script>
+
 </body>
 </html>
