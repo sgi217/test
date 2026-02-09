@@ -1,67 +1,47 @@
-body{
-font-family:sans-serif;
-margin:0;
-text-align:center;
-}
+body{font-family:sans-serif;margin:0;text-align:center}
 
 header{
 display:flex;
 justify-content:space-between;
-align-items:center;
-padding:10px 20px;
+padding:15px;
 background:#eee;
-flex-wrap:wrap;
 }
 
-nav ul{
-display:flex;
-gap:15px;
-list-style:none;
-padding:0;
-}
+.top-controls{display:flex;gap:10px;margin-right:40px}
 
-.page{display:none;}
-.page.active{display:block;}
+.page-content{padding:40px}
 
-.center{text-align:center;margin:auto;}
+.center-box{max-width:600px;margin:auto}
 
-.grid-container{
-display:flex;
-justify-content:center;
+.big-test-btn{
+display:block;
+padding:30px;
+background:#007bff;
+color:white;
 margin-top:20px;
+font-size:22px;
+border-radius:12px;
 }
 
-.test-card{
-padding:20px;
-background:#f3f3f3;
-cursor:pointer;
-border-radius:10px;
-}
-
-.top-controls{
-display:flex;
-gap:10px;
-margin-left:auto;
-}
-
-.container{
+.test-container{
 max-width:600px;
 margin:auto;
 }
 
-.gauge{
+#question{
+font-size:28px;
+margin-bottom:30px;
+}
+
+#yesBtn,#noBtn{
 width:100%;
-height:20px;
-background:#ddd;
-margin-top:10px;
+padding:20px;
+font-size:20px;
+margin:10px 0;
+border-radius:12px;
 }
 
-#gauge-bar{
-height:100%;
-width:0%;
-background:red;
-}
-
-footer{
-margin-top:50px;
+.dark-mode{
+background:#121212;
+color:white;
 }

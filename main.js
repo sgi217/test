@@ -1,82 +1,78 @@
 const langData={
-ko:{title:"각종 테스트"},
-en:{title:"Test Platform"}
+ko:{pageTitle:"각종 테스트"},
+en:{pageTitle:"Various Tests"}
 };
 
-const loveQuestions=[
-["호감 가는 사람이 있으면 바로 다가가는 편이다.",5,1],
-["내 이상형은 영화나 소설 속에 있다.",4,1],
-["연애는 안정감이 더 중요하다.",1,5],
-["현실적인 조건 먼저 본다.",1,5],
-["하루종일 함께는 부담.",1,5],
-["감정 기복 심함.",2,3],
-["싸우면 잘잘못 먼저.",1,4],
-["표현보다 참는다.",5,2],
-["늦으면 기분상함.",1,3],
-["데이트 즉흥.",3,3],
-["순간 즐김.",5,1],
-["연애사 공유함.",4,2]
+const questions=[
+"호감 가는 사람이 있으면 바로 다가가는 편이다.",
+"내 이상형은 영화나 소설 속에 있다.",
+"나에게 있어 연애는 안정감이 더 중요하다",
+"연애 시작 시 현실 조건을 먼저 본다",
+"하루 종일 함께 있는 건 부담스럽다",
+"나는 감정 기복이 심하다",
+"싸우면 누가 잘못했는지 따진다",
+"감정 상해도 참는다",
+"늦으면 기분 상한다",
+"데이트는 즉흥이 좋다",
+"끝 생각 안하고 즐긴다",
+"연애사 잘 털어놓는다"
 ];
 
-let step=0;
-let score=0;
+const yesScore=[5,4,1,1,1,2,1,5,1,3,5,4];
+const noScore=[1,1,5,5,5,3,4,2,3,3,1,2];
 
-function showPage(id){
-document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-}
+let step=0,score=0;
 
-document.querySelectorAll(".nav-link").forEach(el=>{
-el.onclick=()=>showPage(el.dataset.page);
+document.querySelectorAll(".nav-link").forEach(a=>{
+a.onclick=e=>{
+const id=a.dataset.page;
+document.querySelectorAll(".page-content").forEach(p=>p.hidden=true);
+document.getElementById(id).hidden=false;
+};
 });
 
-function renderQuestion(){
-if(step>=loveQuestions.length){
-showResult();
-return;
-}
-const q=loveQuestions[step];
-document.getElementById("question-box").innerText=q[0];
-const ans=document.getElementById("answers");
-ans.innerHTML="";
-
-["YES","NO"].forEach((t,i)=>{
-const b=document.createElement("button");
-b.innerText=t;
-b.onclick=()=>{
-score+= i===0?q[1]:q[2];
-step++;
-renderQuestion();
-};
-ans.appendChild(b);
-});
-}
-
-function showResult(){
-document.getElementById("result").hidden=false;
-document.getElementById("result-title").innerText="사랑꾼 게이지";
-const percent=(score/60)*100;
-document.getElementById("gauge-bar").style.width=percent+"%";
-}
-
-document.getElementById("start-test").onclick=()=>{
-step=0;
-score=0;
-document.getElementById("result").hidden=true;
-renderQuestion();
-};
-
-const langSelect=document.getElementById("language-select");
-langSelect.onchange=()=>{
-const lang=langSelect.value;
-document.documentElement.lang=lang;
-document.querySelectorAll("[data-lang]").forEach(el=>{
-const k=el.dataset.lang;
-if(langData[lang][k]) el.innerText=langData[lang][k];
-});
-};
-
-const toggle=document.getElementById("checkbox");
-toggle.onchange=()=>{
+document.getElementById("checkbox").onchange=()=>{
 document.body.classList.toggle("dark-mode");
 };
+
+document.getElementById("language-select").onchange=e=>{
+const lang=e.target.value;
+document.querySelectorAll("[data-lang]").forEach(el=>{
+const k=el.dataset.lang;
+el.textContent=langData[lang][k];
+});
+};
+
+document.getElementById("start-love").onclick=()=>{
+step=0;score=0;
+document.getElementById("question-area").hidden=false;
+showQ();
+};
+
+function showQ(){
+document.getElementById("question").textContent=questions[step];
+}
+
+yesBtn.onclick=()=>{
+score+=yesScore[step];
+next();
+};
+
+noBtn.onclick=()=>{
+score+=noScore[step];
+next();
+};
+
+function next(){
+step++;
+if(step>=questions.length){
+result();
+}else showQ();
+}
+
+function result(){
+document.getElementById("question-area").hidden=true;
+document.getElementById("result-area").hidden=false;
+result-title.textContent="미친 플러팅 머신";
+result-desc.textContent="연애 고수 타입";
+}
